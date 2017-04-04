@@ -1,0 +1,16 @@
+{
+  "name": "caronas_rural",
+  "version": "1.0.0",
+  "description": "Servidor para o aplicativo de caronas da Universidade Federal Rural do Estado do Rio de Janeiro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://benemiche@bitbucket.org/ufrrj/servidor.git"
+  },
+  "author": "Israel de Sant'anna Nascimento",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ufrrj/servidor#readme"
+}
