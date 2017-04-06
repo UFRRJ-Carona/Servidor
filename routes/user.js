@@ -18,11 +18,11 @@ module.exports = function(app) {
                 console.log("End: "+end);
                 text += "|"+totalText.substring(start, end).trim();
             }
-            var iconv = new Iconv('latin1', 'UTF-8');
-            console.log(iconv.convert(text).toString());
-            text = text.replace("/\t/g", "ASD");
-            console.log("Conteudo: "+text);
-            res.end(""+text);
+
+            var mArray = text.split("|");
+            teste = mArray[1].replace(/[>\t\n]/g, "");
+            console.log("A matricula e:: "+teste);
+            res.end(""+teste);
         }
         quiosque(req.params.matricula, req.params.senha, callback);
         //res.end(""+html);
