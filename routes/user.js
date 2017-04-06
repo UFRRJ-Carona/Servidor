@@ -11,21 +11,22 @@ module.exports = function(app) {
             var end = -1;
             var text = "";
             var totalText = html.substring(info+8, html.indexOf("/div>",info));
-            totalText = totalText.replace("/\t/g","");
             for(var i = 0; i<3; i++) {
                 start = totalText.indexOf(">", start+1);
                 end = totalText.indexOf("<", end+1  );
-                console.log("End: "+end);
                 text += "|"+totalText.substring(start, end).trim();
             }
 
             var mArray = text.split("|");
-            teste = mArray[1].replace(/[>\t\n]/g, "");
-            console.log("A matricula e:: "+teste);
-            res.end(""+teste);
+            var json = {
+                "matricula": mArray[1].replace(/[>\t\n\r]/g, ""),
+                "nome": mArray[2].replace(/[>\t\n\r]/g, ""),
+                "curso": mArray[3].replace(/[>\t\n\r]/g, "")
+            };
+
+            res.json(json);
         }
         quiosque(req.params.matricula, req.params.senha, callback);
-        //res.end(""+html);
     });
 
 }

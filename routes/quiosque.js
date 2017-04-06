@@ -1,15 +1,12 @@
 var http = require("http");
 var querystring = require("querystring");
-//ʤ
+
 module.exports = function(matricula, senha, mCallback) {
     //Por algum motivo uma nova requisicao é feita com a senha sendo favicon.ico
     //TODO: verificar motivo
     if(senha == "favicon.ico") {
         return;
     }
-
-    console.log("Matricula requisitada: "+matricula);
-    console.log("Senha requisitada: "+senha);
 
     var postData = querystring.stringify({
         'edtIdUs': matricula,
