@@ -8,7 +8,7 @@ module.exports = function(app) {
         function callback(html) {
             var info = html.indexOf("info_us");
             if(info === -1) {
-                res.end("Matricula ou senha incorretos");
+                res.status(403).end("Matricula ou senha incorretos");
             }
             var start =-1;
             var end = -1;
