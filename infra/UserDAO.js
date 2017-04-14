@@ -2,17 +2,16 @@ function UserDAO(connection) {
     this._connection = connection;
 }
 
-UserDAO.prototype.register = function(params) {
+UserDAO.prototype.register = function(params, callback) {
     var query = this._connection.query("INSERT INTO usuarios (nome, matricula, curso) VALUES (?, ?, ?)",
         [params.nome, params.matricula, params.curso],
-        function (error, results) {
-            if(error) {
-                throw error;
-                console.log("Ocorreu um erro...");
-                return "Ocorreu um erro...";
-            }
-            console.log("Usuario registrado com sucesso");
-    });
+        callback);
+}
+
+UserDAO.prototype.loginMatricula = function(matricula, callback) {
+    var query = this._connection.query("SELECT * FROM usuarios WHERE matricula=?", matricula,
+        callback);
+    console.log("A chamada foi: "+query.sql);
 }
 
 module.exports = function() {
